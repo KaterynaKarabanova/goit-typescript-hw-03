@@ -7,7 +7,7 @@ class Key {
     this.signature = Math.random();
   }
 
-  getSignature() {
+  getSignature(): number {
     return this.signature;
   }
 }
@@ -21,7 +21,7 @@ class Person {
     this.key = key;
   }
 
-  getKey() {
+  getKey(): Key {
     return this.key;
   }
 }
@@ -37,7 +37,7 @@ abstract class House {
     this.key = key;
   }
 
-  comeIn(person: Person) {
+  comeIn(person: Person): void {
     if (this.door) {
       this.tenants.push(person);
     }
@@ -47,7 +47,7 @@ abstract class House {
 }
 
 class MyHouse extends House {
-  openDoor(key: Key) {
+  openDoor(key: Key): void {
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
     }
